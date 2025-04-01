@@ -162,17 +162,17 @@ class NewsCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             if (feed.imageUrl.isNotEmpty)
-            ClipRRect(
-              borderRadius: const BorderRadius.vertical(
-                top: Radius.circular(12.0),
+              ClipRRect(
+                borderRadius: const BorderRadius.vertical(
+                  top: Radius.circular(12.0),
+                ),
+                child: Image.network(
+                  'https://juicy-monkey.github.io/uutisydin_node${feed.imageUrl}',
+                  width: double.infinity,
+                  height: 250,
+                  fit: BoxFit.cover,
+                ),
               ),
-              child: Image.network(
-                'https://juicy-monkey.github.io/uutisydin_node${feed.imageUrl}',
-                width: double.infinity,
-                height: 250,
-                fit: BoxFit.cover,
-              ),
-            ),
 
             Padding(
               padding: const EdgeInsets.all(12.0),
@@ -206,17 +206,30 @@ class NewsCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 12.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
                     formattedDate,
                     style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
-                  SizedBox(
-                    width: _calculatePublisherLogoWidth(feed.relatedNews),
-                    height: 20,
-                    child: Stack(
-                      children: _buildPublisherLogos(feed.relatedNews),
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: _calculatePublisherLogoWidth(feed.relatedNews),
+                        height: 20,
+                        child: Stack(
+                          children: _buildPublisherLogos(feed.relatedNews),
+                        ),
+                      ),
+                      Text(
+                        '${feed.relatedNews.length} julkaisua',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

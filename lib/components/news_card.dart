@@ -75,7 +75,7 @@ class NewsCard extends StatelessWidget {
 
     final count = uniquePublishers.length;
     if (count == 0) return 0;
-    return 12.0 * (count - 1) + 24.0; // base width + offset
+    return 12 * (count - 1) + 16; // base width + offset
   }
 
   @override

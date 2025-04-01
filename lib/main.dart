@@ -39,6 +39,7 @@ class _HomeState extends State<Home> {
   final TextEditingController _searchController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   bool _showScrollToTopButton = false;
+  String _sortingMethod = 'newest'; // 'newest' or 'most_articles'
 
   List<NewsFeed> allFeeds = [];
   List<NewsFeed> feeds = [];
@@ -141,6 +142,21 @@ class _HomeState extends State<Home> {
     });
   }
 
+  void sortFeeds() {
+    setState(() {
+      if (_sortingMethod == 'newest') {
+        feeds.sort(
+          (a, b) =>
+              b.relatedNews.first.date.compareTo(a.relatedNews.first.date),
+        );
+      } else if (_sortingMethod == 'most_articles') {
+        feeds.sort(
+          (a, b) => b.relatedNews.length.compareTo(a.relatedNews.length),
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -167,8 +183,30 @@ class _HomeState extends State<Home> {
                   height: 25,
                 ),
         actions: [
+          if (!_isSearching)
+          PopupMenuButton<String>(
+            icon: Icon(Icons.sort),
+            tooltip: 'Järjestä',
+            onSelected: (String value) {
+              setState(() {
+                _sortingMethod = value;
+                sortFeeds();
+              });
+            },
+            itemBuilder: (BuildContext context) {
+              return [
+                PopupMenuItem<String>(value: 'newest', child: Text('Uusimmat')),
+                PopupMenuItem<String>(
+                  value: 'most_articles',
+                  child: Text('Eniten julkaisuja'),
+                ),
+              ];
+            },
+          ),
+
           IconButton(
             icon: Icon(_isSearching ? Icons.close : Icons.search),
+            tooltip: 'Hae',
             onPressed: () {
               setState(() {
                 _isSearching = !_isSearching;

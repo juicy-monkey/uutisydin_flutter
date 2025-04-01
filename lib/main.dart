@@ -217,6 +217,8 @@ class _HomeState extends State<Home> {
               });
             },
           ),
+
+          const SizedBox(width: 4.0),
         ],
       ),
       floatingActionButton:

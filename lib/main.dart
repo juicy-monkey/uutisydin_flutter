@@ -17,7 +17,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Uutisydin',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF607D8B), dynamicSchemeVariant: DynamicSchemeVariant.vibrant),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF607D8B),
+          dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
+        ),
       ),
       home: const Home(),
     );
@@ -184,9 +187,15 @@ class _HomeState extends State<Home> {
                     filterFeeds(value);
                   },
                 )
-                : Image.asset(
-                  'assets/uutisydin/uutisydin_text.png',
-                  height: 25,
+                : Tooltip(
+                  message: 'Tietoa',
+                  child: InkWell(
+                    onTap: () {},
+                    child: Image.asset(
+                      'assets/uutisydin/uutisydin_text.png',
+                      height: 25,
+                    ),
+                  ),
                 ),
         actions: [
           if (!_isSearching)

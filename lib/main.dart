@@ -118,7 +118,9 @@ class _HomeState extends State<Home> {
         });
         sortFeeds();
       } else {
-        throw Exception('Failed to load news feed, status code ${response.statusCode}');
+        throw Exception(
+          'Failed to load news feed, status code ${response.statusCode}',
+        );
       }
     } catch (e) {
       debugPrint('Error fetching news: $e');
@@ -188,25 +190,46 @@ class _HomeState extends State<Home> {
                 ),
         actions: [
           if (!_isSearching)
-          PopupMenuButton<String>(
-            icon: Icon(Icons.sort),
-            tooltip: 'Järjestä',
-            onSelected: (String value) {
-              setState(() {
-                _sortingMethod = value;
-                sortFeeds();
-              });
-            },
-            itemBuilder: (BuildContext context) {
-              return [
-                PopupMenuItem<String>(value: 'newest', child: Text('Uusimmat')),
-                PopupMenuItem<String>(
-                  value: 'most_articles',
-                  child: Text('Eniten julkaisuja'),
-                ),
-              ];
-            },
-          ),
+            PopupMenuButton<String>(
+              icon: Icon(Icons.sort),
+              tooltip: 'Järjestä',
+              onSelected: (String value) {
+                setState(() {
+                  _sortingMethod = value;
+                  sortFeeds();
+                });
+              },
+              itemBuilder: (BuildContext context) {
+                return [
+                  PopupMenuItem<String>(
+                    value: 'newest',
+                    child: Row(
+                      children: [
+                        if (_sortingMethod == 'newest')
+                          Icon(Icons.check, size: 18)
+                        else
+                          SizedBox(width: 18),
+                        SizedBox(width: 8),
+                        Text('Uusimmat'),
+                      ],
+                    ),
+                  ),
+                  PopupMenuItem<String>(
+                    value: 'most_articles',
+                    child: Row(
+                      children: [
+                        if (_sortingMethod == 'most_articles')
+                          Icon(Icons.check, size: 18)
+                        else
+                          SizedBox(width: 18),
+                        SizedBox(width: 8),
+                        Text('Eniten julkaisuja'),
+                      ],
+                    ),
+                  ),
+                ];
+              },
+            ),
 
           IconButton(
             icon: Icon(_isSearching ? Icons.close : Icons.search),

@@ -4,12 +4,14 @@ import 'package:uutisydin_flutter/pages/info.dart';
 import 'package:uutisydin_flutter/utils/functions.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({super.key});
+  final bool showInfoButton;
+  const Footer({super.key, required this.showInfoButton});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        if (showInfoButton)
         TextButton(
           onPressed:
               () => {

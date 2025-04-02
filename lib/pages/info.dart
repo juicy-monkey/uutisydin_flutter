@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:uutisydin_flutter/components/footer.dart';
 import 'package:uutisydin_flutter/components/juicy_monkey_link.dart';
 import 'package:uutisydin_flutter/utils/functions.dart';
 
@@ -164,6 +164,8 @@ class Info extends StatelessWidget {
                   SizedBox(height: 8),
                 ],
               ),
+
+              Footer(showInfoButton: false)
             ],
           ),
         ),

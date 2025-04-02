@@ -321,7 +321,7 @@ class _HomeState extends State<Home> {
                       ),
 
                     if (!_isSearching)
-                      Footer()
+                      Footer(showInfoButton: true)
                   ],
                 ),
       ),

@@ -63,6 +63,7 @@ class _HomeState extends State<Home> {
   @override
   void dispose() {
     _scrollController.dispose();
+    _searchController.dispose();
     super.dispose();
   }
 
@@ -73,8 +74,10 @@ class _HomeState extends State<Home> {
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
-        debugPrint('STATUS 200');
+        debugPrint('STATUS: 200');
         final jsonData = jsonDecode(response.body);
+        final timestamp = jsonData['timestamp'] as String;
+        debugPrint('TIMESTAMP: $timestamp');
 
         final feedsJson = jsonData['feeds'] as List;
         final parsedFeeds =
@@ -114,7 +117,7 @@ class _HomeState extends State<Home> {
           feeds = parsedFeeds;
         });
       } else {
-        throw Exception('Failed to load news feed');
+        throw Exception('Failed to load news feed, status code ${response.statusCode}');
       }
     } catch (e) {
       debugPrint('Error fetching news: $e');

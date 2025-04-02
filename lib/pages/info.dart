@@ -38,7 +38,7 @@ class Info extends StatelessWidget {
                 children: [
                   Image.asset(
                     'assets/uutisydin/uutisydin_text.png',
-                    height: 25,
+                    height: 30,
                   ),
                   SizedBox(height: 8),
                   Text('Versio $version'),

@@ -200,7 +200,7 @@ class _HomeState extends State<Home> {
                     },
                     child: Image.asset(
                       'assets/uutisydin/uutisydin_text.png',
-                      height: 25,
+                      height: 30,
                     ),
                   ),
                 ),

@@ -116,6 +116,7 @@ class _HomeState extends State<Home> {
           allFeeds = parsedFeeds;
           feeds = parsedFeeds;
         });
+        sortFeeds();
       } else {
         throw Exception('Failed to load news feed, status code ${response.statusCode}');
       }

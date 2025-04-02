@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
 import 'package:uutisydin_flutter/components/juicy_monkey_link.dart';
 import 'package:uutisydin_flutter/utils/functions.dart';
@@ -74,7 +73,7 @@ class Info extends StatelessWidget {
                               TapGestureRecognizer()
                                 ..onTap = () {
                                   launchEmail(
-                                    'Uutisydin - Palaute ja kehitysehdotuksia',
+                                    'Uutisydin | Palaute- ja kehitysehdotuksia',
                                   );
                                 },
                         ),
@@ -106,8 +105,8 @@ class Info extends StatelessWidget {
               ),
 
               //////////////////////////////
-              GestureDetector(
-                onTap: () {
+              TextButton(
+                onPressed: () {
                   showLicensePage(
                     context: context,
                     applicationName: 'Uutisydin',

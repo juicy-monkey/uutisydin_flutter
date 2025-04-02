@@ -23,7 +23,7 @@ class Footer extends StatelessWidget {
 
         TextButton(
           onPressed:
-              () => {launchEmail('Uutisydin - Palaute ja kehitysehdotuksia')},
+              () => {launchEmail('Uutisydin | Palaute- ja kehitysehdotuksia')},
           child: Text(
             'Lähetä palautetta',
             style: TextStyle(color: Colors.grey),
@@ -31,7 +31,7 @@ class Footer extends StatelessWidget {
         ),
 
         TextButton(
-          onPressed: () => {launchEmail('Uutisydin - Yhteydentotto')},
+          onPressed: () => {launchEmail('Uutisydin | Yhteydentotto')},
           child: Text('Ota yhteyttä', style: TextStyle(color: Colors.grey)),
         ),
         SizedBox(height: 8),

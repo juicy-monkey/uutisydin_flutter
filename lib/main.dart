@@ -1,13 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:url_launcher/url_launcher.dart';
 import 'package:uutisydin_flutter/components/footer.dart';
-import 'package:uutisydin_flutter/components/juicy_monkey_link.dart';
 import 'package:uutisydin_flutter/components/news_card.dart';
 import 'package:uutisydin_flutter/models.dart';
 import 'package:uutisydin_flutter/pages/info.dart';
-import 'package:uutisydin_flutter/utils/functions.dart';
 
 void main() {
   runApp(const App());
@@ -325,7 +322,6 @@ class _HomeState extends State<Home> {
 
                     if (!_isSearching)
                       Footer()
-                      
                   ],
                 ),
       ),

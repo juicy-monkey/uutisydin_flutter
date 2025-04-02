@@ -251,7 +251,7 @@ class _HomeState extends State<Home> {
       floatingActionButton:
           _showScrollToTopButton
               ? FloatingActionButton(
-                backgroundColor: Theme.of(context).colorScheme.primary,
+                backgroundColor: Theme.of(context).colorScheme.surface,
                 onPressed: () {
                   _scrollController.animateTo(
                     0,
@@ -259,7 +259,7 @@ class _HomeState extends State<Home> {
                     curve: Curves.easeOut,
                   );
                 },
-                child: const Icon(Icons.arrow_upward, color: Colors.white),
+                child: const Icon(Icons.arrow_upward),
               )
               : null,
 

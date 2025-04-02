@@ -92,6 +92,7 @@ class NewsCard extends StatelessWidget {
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
                     maxHeight: MediaQuery.of(context).size.height,
+                    maxWidth: 600
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

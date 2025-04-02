@@ -1,33 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
+import 'package:uutisydin_flutter/components/juicy_monkey_link.dart';
+import 'package:uutisydin_flutter/utils/functions.dart';
 
 class Info extends StatelessWidget {
   const Info({super.key});
   final String version = '1.0.0';
-
-  void _launchURL(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
-
-  void _launchEmail(String subject) async {
-    final Uri emailUri = Uri(
-      scheme: 'mailto',
-      path: 'jusamankki@gmail.com',
-      queryParameters: {'subject': subject, 'body': ''},
-    );
-
-    if (await canLaunchUrl(emailUri)) {
-      await launchUrl(emailUri);
-    } else {
-      throw 'Could not launch $emailUri';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,25 +28,7 @@ class Info extends StatelessWidget {
               SizedBox(height: 8),
               Text('Versio $version'),
               SizedBox(height: 8),
-              GestureDetector(
-                onTap:
-                    () => {
-                      _launchURL('https://juicy-monkey.github.io/homepage/'),
-                    },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: const [
-                    Icon(Icons.copyright, size: 16, color: Colors.grey),
-                    SizedBox(width: 4),
-                    Text(
-                      'Juicy Monkey',
-                      style: TextStyle(
-                        color: Colors.blue,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              JuicyMonkeyLink(),
               SizedBox(height: 20),
 
               /////////////////////////////
@@ -112,7 +73,7 @@ class Info extends StatelessWidget {
                           recognizer:
                               TapGestureRecognizer()
                                 ..onTap = () {
-                                  _launchEmail(
+                                  launchEmail(
                                     'Uutisydin - Palaute ja kehitysehdotuksia',
                                   );
                                 },

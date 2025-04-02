@@ -1,9 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
+import 'package:uutisydin_flutter/components/footer.dart';
+import 'package:uutisydin_flutter/components/juicy_monkey_link.dart';
 import 'package:uutisydin_flutter/components/news_card.dart';
 import 'package:uutisydin_flutter/models.dart';
 import 'package:uutisydin_flutter/pages/info.dart';
+import 'package:uutisydin_flutter/utils/functions.dart';
 
 void main() {
   runApp(const App());
@@ -193,8 +197,9 @@ class _HomeState extends State<Home> {
                   child: InkWell(
                     onTap: () {
                       Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Info()));
+                        context,
+                        MaterialPageRoute(builder: (context) => Info()),
+                      );
                     },
                     child: Image.asset(
                       'assets/uutisydin/uutisydin_text.png',
@@ -308,7 +313,7 @@ class _HomeState extends State<Home> {
                           ),
                           SizedBox(height: 8),
                           Text(
-                            "Nyt olet kärryillä viimeisen 48 tunnin ajalta!",
+                            'Nyt olet kärryillä viimeisen 48 tunnin ajalta!',
                             style: TextStyle(
                               fontSize: 16,
                               color: Colors.black54,
@@ -317,10 +322,13 @@ class _HomeState extends State<Home> {
                           SizedBox(height: 100),
                         ],
                       ),
+
+                    if (!_isSearching)
+                      Footer()
+                      
                   ],
                 ),
       ),
     );
   }
 }
-

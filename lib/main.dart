@@ -295,7 +295,14 @@ class _HomeState extends State<Home> {
                           right: 12.0,
                           bottom: 8.0,
                         ),
-                        child: NewsCard(feed: feed),
+                        child: Center(
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints(
+                              maxWidth: 500,
+                            ), // set your desired max width
+                            child: NewsCard(feed: feed),
+                          ),
+                        ),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -320,8 +327,7 @@ class _HomeState extends State<Home> {
                         ],
                       ),
 
-                    if (!_isSearching)
-                      Footer(showInfoButton: true)
+                    if (!_isSearching) Footer(showInfoButton: true),
                   ],
                 ),
       ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:uutisydin_flutter/components/news_card.dart';
 import 'package:uutisydin_flutter/models.dart';
+import 'package:uutisydin_flutter/pages/info.dart';
 
 void main() {
   runApp(const App());
@@ -190,7 +191,11 @@ class _HomeState extends State<Home> {
                 : Tooltip(
                   message: 'Tietoa',
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Info()));
+                    },
                     child: Image.asset(
                       'assets/uutisydin/uutisydin_text.png',
                       height: 25,
@@ -318,3 +323,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
+

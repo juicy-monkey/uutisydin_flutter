@@ -274,9 +274,10 @@ class _HomeState extends State<Home> {
                   children: [
                     ...feeds.map(
                       (feed) => Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 12.0,
-                          vertical: 8.0,
+                        padding: const EdgeInsets.only(
+                          left: 12.0,
+                          right: 12.0,
+                          bottom: 8.0,
                         ),
                         child: NewsCard(feed: feed),
                       ),

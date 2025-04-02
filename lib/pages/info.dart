@@ -28,11 +28,12 @@ class Info extends StatelessWidget {
           },
         ),
       ),
-      body: 
-        Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 600),
-            child: SingleChildScrollView(
+      body: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 600),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                 children: [
                   Image.asset(
@@ -198,6 +199,7 @@ class Info extends StatelessWidget {
             ),
           ),
         ),
+      ),
     );
   }
 }

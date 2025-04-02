@@ -16,7 +16,7 @@ class NewsCardDialogItem extends StatelessWidget {
     return Card(
       color: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-      elevation: 2.0,
+      elevation: 1.0,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(

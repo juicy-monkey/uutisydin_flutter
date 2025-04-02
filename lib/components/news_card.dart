@@ -154,7 +154,7 @@ class NewsCard extends StatelessWidget {
       },
       child: Card(
         color: Colors.white,
-        elevation: 4.0,
+        elevation: 3.0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),

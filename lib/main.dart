@@ -299,7 +299,7 @@ class _HomeState extends State<Home> {
                           child: ConstrainedBox(
                             constraints: BoxConstraints(
                               maxWidth: 500,
-                            ), // set your desired max width
+                            ),
                             child: NewsCard(feed: feed),
                           ),
                         ),

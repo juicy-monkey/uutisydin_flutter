@@ -129,31 +129,11 @@ class _HomeState extends State<Home> {
         sortFeeds();
       } else {
         debugPrint('Error fetching news, status code: ${response.statusCode}');
-        if (mounted) {
-          setState(() {
-            _errorMessage = 'Uutisten lataaminen epäonnistui.';
-          });
-          Fluttertoast.showToast(
-            msg: 'Response status code ${response.statusCode}',
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            toastLength: Toast.LENGTH_LONG,
-            timeInSecForIosWeb: 5,
-            gravity: ToastGravity.BOTTOM,
-            webShowClose: true,
-            webPosition: 'center',
-          );
-        }
-      }
-    } catch (e) {
-      debugPrint('Error fetching news: $e');
-      if (mounted) {
         setState(() {
           _errorMessage = 'Uutisten lataaminen epäonnistui.';
         });
-
         Fluttertoast.showToast(
-          msg: '$e',
+          msg: 'Response status code ${response.statusCode}',
           backgroundColor: Colors.red,
           textColor: Colors.white,
           toastLength: Toast.LENGTH_LONG,
@@ -163,6 +143,21 @@ class _HomeState extends State<Home> {
           webPosition: 'center',
         );
       }
+    } catch (e) {
+      debugPrint('Error fetching news: $e');
+      setState(() {
+        _errorMessage = 'Uutisten lataaminen epäonnistui.';
+      });
+      Fluttertoast.showToast(
+        msg: '$e',
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        toastLength: Toast.LENGTH_LONG,
+        timeInSecForIosWeb: 5,
+        gravity: ToastGravity.BOTTOM,
+        webShowClose: true,
+        webPosition: 'center',
+      );
     }
   }
 

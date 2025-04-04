@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
       _errorMessage = null;
     });
 
-    const url = 'https://juicy-monkey.github.io/uutisydin_node/data.json___';
+    const url = 'https://juicy-monkey.github.io/uutisydin_node/data.json';
     // const url = 'http://localhost:8080/api/feeds';
 
     try {
@@ -128,9 +128,15 @@ class _HomeState extends State<Home> {
         });
         sortFeeds();
       } else {
-        throw Exception(
-          'Failed to load news feed, status code ${response.statusCode}',
-        );
+        debugPrint('Error fetching news, status code: ${response.statusCode}');
+        if (mounted) {
+          setState(() {
+            _errorMessage = 'Uutisten lataaminen epäonnistui.';
+          });
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Response status code ${response.statusCode}'), backgroundColor: Colors.red),
+          );
+        }
       }
     } catch (e) {
       debugPrint('Error fetching news: $e');

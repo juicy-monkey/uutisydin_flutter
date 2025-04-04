@@ -45,6 +45,7 @@ class _HomeState extends State<Home> {
   final ScrollController _scrollController = ScrollController();
   bool _showScrollToTopButton = false;
   String _sortingMethod = 'newest'; // 'newest' or 'most_articles'
+  String? _errorMessage;
 
   List<NewsFeed> allFeeds = [];
   List<NewsFeed> feeds = [];
@@ -73,6 +74,10 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> fetchFeed() async {
+    setState(() {
+      _errorMessage = null;
+    });
+
     const url = 'https://juicy-monkey.github.io/uutisydin_node/data.json___';
     // const url = 'http://localhost:8080/api/feeds';
 
@@ -130,13 +135,11 @@ class _HomeState extends State<Home> {
     } catch (e) {
       debugPrint('Error fetching news: $e');
       if (mounted) {
+        setState(() {
+          _errorMessage = 'Uutisten lataaminen epäonnistui.';
+        });
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Uutisten lataaminen epäonnistui. Yritä myöhemmin uudelleen.',
-            ),
-            backgroundColor: Colors.red,
-          ),
+          SnackBar(content: Text('$e'), backgroundColor: Colors.red),
         );
       }
     }
@@ -294,7 +297,24 @@ class _HomeState extends State<Home> {
         onRefresh: fetchFeed,
         child:
             feeds.isEmpty
-                ? const Center()
+                ? Center(
+                  child:
+                      _errorMessage != null
+                          ? Column(
+                            children: [
+                              SizedBox(height: 30),
+                              Text(_errorMessage!),
+                              TextButton(
+                                onPressed: fetchFeed,
+                                child: Text(
+                                  'Yritä uudelleen',
+                                  style: TextStyle(color: Colors.blue),
+                                ),
+                              ),
+                            ],
+                          )
+                          : const Center(),
+                )
                 : ListView(
                   controller: _scrollController,
                   children: [

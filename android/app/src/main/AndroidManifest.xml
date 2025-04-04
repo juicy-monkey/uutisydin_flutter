@@ -1,4 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/> <!-- JUSA ADDED -->
+
     <application
         android:label="uutisydin_flutter"
         android:name="${applicationName}"

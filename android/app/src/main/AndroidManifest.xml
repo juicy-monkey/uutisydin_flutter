@@ -3,7 +3,7 @@
     <uses-permission android:name="android.permission.INTERNET"/> <!-- JUSA ADDED -->
 
     <application
-        android:label="uutisydin_flutter"
+        android:label="Uutisydin"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

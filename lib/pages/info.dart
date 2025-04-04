@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uutisydin_flutter/components/footer.dart';
 import 'package:uutisydin_flutter/components/juicy_monkey_link.dart';

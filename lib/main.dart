@@ -73,7 +73,7 @@ class _HomeState extends State<Home> {
   }
 
   Future<void> fetchFeed() async {
-    const url = 'https://juicy-monkey.github.io/uutisydin_node/data.json';
+    const url = 'https://juicy-monkey.github.io/uutisydin_node/data.json___';
     // const url = 'http://localhost:8080/api/feeds';
 
     try {
@@ -129,6 +129,16 @@ class _HomeState extends State<Home> {
       }
     } catch (e) {
       debugPrint('Error fetching news: $e');
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Uutisten lataaminen epäonnistui. Yritä myöhemmin uudelleen.',
+            ),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
   }
 
@@ -297,9 +307,7 @@ class _HomeState extends State<Home> {
                         ),
                         child: Center(
                           child: ConstrainedBox(
-                            constraints: BoxConstraints(
-                              maxWidth: 500,
-                            ),
+                            constraints: BoxConstraints(maxWidth: 500),
                             child: NewsCard(feed: feed),
                           ),
                         ),

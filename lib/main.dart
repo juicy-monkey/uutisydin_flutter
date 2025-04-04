@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:uutisydin_flutter/components/footer.dart';
 import 'package:uutisydin_flutter/components/news_card.dart';
@@ -132,8 +133,15 @@ class _HomeState extends State<Home> {
           setState(() {
             _errorMessage = 'Uutisten lataaminen epäonnistui.';
           });
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Response status code ${response.statusCode}'), backgroundColor: Colors.red),
+          Fluttertoast.showToast(
+            msg: 'Response status code ${response.statusCode}',
+            backgroundColor: Colors.red,
+            textColor: Colors.white,
+            toastLength: Toast.LENGTH_LONG,
+            timeInSecForIosWeb: 5,
+            gravity: ToastGravity.BOTTOM,
+            webShowClose: true,
+            webPosition: 'center',
           );
         }
       }
@@ -143,8 +151,16 @@ class _HomeState extends State<Home> {
         setState(() {
           _errorMessage = 'Uutisten lataaminen epäonnistui.';
         });
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('$e'), backgroundColor: Colors.red),
+
+        Fluttertoast.showToast(
+          msg: '$e',
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          toastLength: Toast.LENGTH_LONG,
+          timeInSecForIosWeb: 5,
+          gravity: ToastGravity.BOTTOM,
+          webShowClose: true,
+          webPosition: 'center',
         );
       }
     }

@@ -78,27 +78,22 @@ class Info extends StatelessWidget {
                       ),
                       SizedBox(height: 8),
 
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            const TextSpan(
-                              text:
-                                  'Kuulemme mielellämme palautetta ja kehitysehdotuksia. Voit lähettää palautetta ',
-                            ),
-                            TextSpan(
-                              text: 'sähköpostitse. ',
-                              style: const TextStyle(color: Colors.blue),
-                              recognizer:
-                                  TapGestureRecognizer()
-                                    ..onTap = () {
-                                      launchEmail(
-                                        'Uutisydin | Palaute- ja kehitysehdotuksia',
-                                      );
-                                    },
-                            ),
-                          ],
-                        ),
+                      const Text(
+                        'Kuulemme mielellämme palautetta ja kehitysehdotuksia! ',
                       ),
+                      
+                      Center(child: TextButton(
+                        onPressed:
+                            () => {
+                              launchEmail(
+                                'Uutisydin | Palaute- ja kehitysehdotuksia',
+                              ),
+                            },
+                        child: Text(
+                          'Lähetä palautetta',
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      ),),
 
                       SizedBox(height: 20),
 
@@ -167,7 +162,9 @@ class Info extends StatelessWidget {
                       TextButton(
                         onPressed: () {
                           launchUrl(
-                            Uri.parse('https://juicy-monkey.github.io/uutisydin_node/image-licences.html'),
+                            Uri.parse(
+                              'https://juicy-monkey.github.io/uutisydin_node/image-licences.html',
+                            ),
                           );
                         },
                         child: const Text(

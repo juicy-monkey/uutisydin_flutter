@@ -80,19 +80,21 @@ class Info extends StatelessWidget {
                       const Text(
                         'Kuulemme mielellämme palautetta ja kehitysehdotuksia! ',
                       ),
-                      
-                      Center(child: TextButton(
-                        onPressed:
-                            () => {
-                              launchEmail(
-                                'Uutisydin | Palaute- ja kehitysehdotuksia',
-                              ),
-                            },
-                        child: Text(
-                          'Lähetä palautetta',
-                          style: TextStyle(color: Colors.blue),
+
+                      Center(
+                        child: TextButton(
+                          onPressed:
+                              () => {
+                                launchEmail(
+                                  'Uutisydin | Palaute- ja kehitysehdotuksia',
+                                ),
+                              },
+                          child: Text(
+                            'Lähetä palautetta',
+                            style: TextStyle(color: Colors.blue),
+                          ),
                         ),
-                      ),),
+                      ),
 
                       SizedBox(height: 20),
 
@@ -158,6 +160,17 @@ class Info extends StatelessWidget {
                       ),
                       SizedBox(height: 8),
 
+                      Text(
+                        'Tämä sovellus ja sen sisältämä lähdekoodi, grafiikka, nimet ja logot ovat tekijänoikeuden suojaamia ja kuuluvat tekijälle. '
+                        'Tätä sovellusta tai sen osia ei saa kopioida, muokata, levittää, julkaista tai käyttää ilman tekijän etukäteen antamaa lupaa. '
+                        'Kaikki oikeudet pidätetään. '),
+                      SizedBox(height: 8),
+
+                      Text(
+                        'Sovellus sisältää kolmansien osapuolien tuottamia kuvia, jotka on lisensoitu Creative Commons -lisenssien alla. '
+                        'Näiden kuvien oikeudet säilyvät alkuperäisillä tekijöillä, ja kuvia käytetään lisenssiehtojen mukaisesti. '
+                      ),
+
                       TextButton(
                         onPressed: () {
                           launchUrl(
@@ -187,7 +200,6 @@ class Info extends StatelessWidget {
                       ),
                     ],
                   ),
-
 
                   SizedBox(height: 50),
                   Footer(showInfoButton: false),

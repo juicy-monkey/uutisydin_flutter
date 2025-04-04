@@ -9,21 +9,29 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final buttonStyle = TextButton.styleFrom(
+      padding: EdgeInsets.all(4.0),
+      minimumSize: Size(0, 0),
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    );
+
     return Column(
       children: [
         if (showInfoButton)
-        TextButton(
-          onPressed:
-              () => {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Info()),
-                ),
-              },
-          child: Text('Tietoa', style: TextStyle(color: Colors.grey)),
-        ),
+          TextButton(
+            style: buttonStyle,
+            onPressed:
+                () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Info()),
+                  ),
+                },
+            child: Text('Tietoa', style: TextStyle(color: Colors.grey)),
+          ),
 
         TextButton(
+          style: buttonStyle,
           onPressed:
               () => {launchEmail('Uutisydin | Palaute- ja kehitysehdotuksia')},
           child: Text(
@@ -33,13 +41,13 @@ class Footer extends StatelessWidget {
         ),
 
         TextButton(
+          style: buttonStyle,
           onPressed: () => {launchEmail('Uutisydin | Yhteydentotto')},
           child: Text('Ota yhteyttä', style: TextStyle(color: Colors.grey)),
         ),
-        SizedBox(height: 8),
 
         JuicyMonkeyLink(),
-        SizedBox(height: 8),
+        SizedBox(height: 16),
       ],
     );
   }

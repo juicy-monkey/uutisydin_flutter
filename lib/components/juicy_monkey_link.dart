@@ -8,7 +8,14 @@ class JuicyMonkeyLink extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final buttonStyle = TextButton.styleFrom(
+      padding: EdgeInsets.all(4.0),
+      minimumSize: Size(0, 0),
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    );
+
     return TextButton(
+      style: buttonStyle,
       onPressed: () => {
         launchUrl(Uri.parse('https://juicy-monkey.github.io/homepage/'))
         },

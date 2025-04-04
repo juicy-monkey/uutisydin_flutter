@@ -172,7 +172,6 @@ class Info extends StatelessWidget {
                           style: TextStyle(color: Colors.blue),
                         ),
                       ),
-                      SizedBox(height: 8),
 
                       TextButton(
                         onPressed: () {
@@ -187,10 +186,11 @@ class Info extends StatelessWidget {
                           style: TextStyle(color: Colors.blue),
                         ),
                       ),
-                      SizedBox(height: 8),
                     ],
                   ),
 
+
+                  SizedBox(height: 50),
                   Footer(showInfoButton: false),
                 ],
               ),

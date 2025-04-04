@@ -31,7 +31,6 @@ class App extends StatelessWidget {
 
 class Home extends StatefulWidget {
   const Home({super.key});
-  final String title = 'Uutisydin';
 
   @override
   State<Home> createState() => _HomeState();

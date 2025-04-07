@@ -68,7 +68,7 @@ class Info extends StatelessWidget {
 
                       const Text(
                         'Voit hakea uutisia hakutoiminnolla sekä järjestää ne joko julkaisuajan mukaan tai aiheiden mukaan, joista on kirjoitettu eniten. '
-                        'Uutiskoosteet päivittyvät automaattisesti 15 minuutin välein. ',
+                        'Uutiskoosteet päivittyvät automaattisesti noin 15 minuutin välein. ',
                       ),
                       SizedBox(height: 8),
 

@@ -311,7 +311,7 @@ class _HomeState extends State<Home> {
       body: RefreshIndicator(
         key: _refreshIndicatorKey,
         onRefresh: fetchFeed,
-        color: const Color(0xFF074080), // Same as blue in title image
+        color: const Color(0xFF074080), // Same blue as in title image
         child:
             feeds.isEmpty
                 ? Center(

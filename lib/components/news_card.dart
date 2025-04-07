@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:uutisydin_flutter/components/news_card_dialog_item.dart';
 import 'package:uutisydin_flutter/models.dart';
+import 'package:uutisydin_flutter/utils/colors.dart';
 
 class NewsCard extends StatelessWidget {
   final NewsFeed feed;
@@ -47,7 +48,7 @@ class NewsCard extends StatelessWidget {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: const Color.fromARGB(255, 94, 94, 94),
+                  color: AppColors.shadow,
                   blurRadius: 1,
                   offset: Offset(0.1, 1),
                 ),
@@ -156,6 +157,7 @@ class NewsCard extends StatelessWidget {
       child: Card(
         color: Colors.white,
         elevation: 3.0,
+        shadowColor: AppColors.shadow,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),

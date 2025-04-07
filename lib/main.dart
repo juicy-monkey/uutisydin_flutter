@@ -204,7 +204,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.surface,
         surfaceTintColor: Theme.of(context).colorScheme.surface,
-        shadowColor: const Color.fromARGB(26, 158, 158, 158),
+        shadowColor: AppColors.lightShadow,
         title:
             _isSearching
                 ? TextField(

@@ -6,6 +6,7 @@ import 'package:uutisydin_flutter/components/footer.dart';
 import 'package:uutisydin_flutter/components/news_card.dart';
 import 'package:uutisydin_flutter/models.dart';
 import 'package:uutisydin_flutter/pages/info.dart';
+import 'package:uutisydin_flutter/utils/colors.dart';
 
 void main() {
   runApp(const App());
@@ -21,7 +22,7 @@ class App extends StatelessWidget {
       title: 'Uutisydin',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF607D8B),
+          seedColor: AppColors.seed,
           dynamicSchemeVariant: DynamicSchemeVariant.vibrant,
         ),
       ),
@@ -304,14 +305,14 @@ class _HomeState extends State<Home> {
                     curve: Curves.easeOut,
                   );
                 },
-                child: const Icon(Icons.arrow_upward),
+                child: const Icon(Icons.arrow_upward, color: AppColors.logoBlue),
               )
               : null,
 
       body: RefreshIndicator(
         key: _refreshIndicatorKey,
         onRefresh: fetchFeed,
-        color: const Color(0xFF074080), // Same blue as in title image
+        color: AppColors.logoBlue,
         child:
             feeds.isEmpty
                 ? Center(

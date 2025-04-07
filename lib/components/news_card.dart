@@ -188,7 +188,6 @@ class NewsCard extends StatelessWidget {
                         style: const TextStyle(
                           fontSize: 14,
                           color: Colors.grey,
-                          fontWeight: FontWeight.w500,
                         ),
                       ),
                     ),

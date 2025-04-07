@@ -305,7 +305,7 @@ class _HomeState extends State<Home> {
                     curve: Curves.easeOut,
                   );
                 },
-                child: const Icon(Icons.arrow_upward, color: AppColors.logoBlue),
+                child: const Icon(Icons.arrow_upward),
               )
               : null,
 

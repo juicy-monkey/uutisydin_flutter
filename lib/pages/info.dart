@@ -152,7 +152,7 @@ class Info extends StatelessWidget {
 
                       //////////////////////////////
                       const Text(
-                        'Lisenssit',
+                        'Tietosuoja ja lisenssit',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -163,12 +163,33 @@ class Info extends StatelessWidget {
                       Text(
                         'Tämä sovellus ja sen sisältämä lähdekoodi, grafiikka, nimet ja logot ovat tekijänoikeuden suojaamia ja kuuluvat tekijälle. '
                         'Tätä sovellusta tai sen osia ei saa kopioida, muokata, levittää, julkaista tai käyttää ilman tekijän etukäteen antamaa lupaa. '
-                        'Kaikki oikeudet pidätetään. '),
+                        'Kaikki oikeudet pidätetään. ',
+                      ),
                       SizedBox(height: 8),
 
                       Text(
                         'Sovellus sisältää kolmansien osapuolien tuottamia kuvia, jotka on lisensoitu Creative Commons -lisenssien alla. '
-                        'Näiden kuvien oikeudet säilyvät alkuperäisillä tekijöillä, ja kuvia käytetään lisenssiehtojen mukaisesti. '
+                        'Näiden kuvien oikeudet säilyvät alkuperäisillä tekijöillä, ja kuvia käytetään lisenssiehtojen mukaisesti. ',
+                      ),
+                      SizedBox(height: 8),
+
+                      Center(child: Column(children: [
+                        
+
+
+
+                      TextButton(
+                        onPressed: () {
+                          launchUrl(
+                            Uri.parse(
+                              'https://juicy-monkey.github.io/uutisydin_node/privacy-policy.html',
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'Tietosuojakäytännöt',
+                          style: TextStyle(color: Colors.blue),
+                        ),
                       ),
 
                       TextButton(
@@ -198,6 +219,11 @@ class Info extends StatelessWidget {
                           style: TextStyle(color: Colors.blue),
                         ),
                       ),
+
+                      ],
+                      )
+                      ),
+
                     ],
                   ),
 

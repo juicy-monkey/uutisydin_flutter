@@ -6,7 +6,7 @@ import 'package:uutisydin_flutter/utils/functions.dart';
 
 class Info extends StatelessWidget {
   const Info({super.key});
-  final String version = '1.0.0';
+  final String version = '1.0.1';
 
   Widget _buildUrlLinkButton(String label, String url) {
     return TextButton(
@@ -68,7 +68,7 @@ class Info extends StatelessWidget {
 
                       const Text(
                         'Voit hakea uutisia hakutoiminnolla sekä järjestää ne joko julkaisuajan mukaan tai aiheiden mukaan, joista on kirjoitettu eniten. '
-                        'Uutiskoosteet päivittyvät automaattisesti noin 15 minuutin välein. ',
+                        'Uutiskoosteet päivittyvät automaattisesti noin kahden tunnin välein. ',
                       ),
                       SizedBox(height: 8),
 

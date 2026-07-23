@@ -24,7 +24,7 @@ class JuicyMonkeyLink extends StatelessWidget {
         children: const [
           Icon(Icons.copyright, size: 12, color: Colors.grey),
           SizedBox(width: 4),
-          Text('2025 Juicy Monkey', style: TextStyle(color: Colors.blue)),
+          Text('2026 Juicy Monkey', style: TextStyle(color: Colors.blue)),
         ],
       ),
     );
